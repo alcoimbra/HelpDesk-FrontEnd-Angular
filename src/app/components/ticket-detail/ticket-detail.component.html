@@ -1,0 +1,56 @@
+<div class="col-md-10" style="margin-left: 0%">
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3>Detail Ticket</h3>
+        </div>
+
+        <form class="form-horizontal">
+            <div [ngClass]="classCss" role="alert" *ngIf="message">
+                <strong>{{ message.text }}</strong>
+            </div>
+
+            <div class="box-body">
+                <ul class="list-group list-group-unbordered">
+                    <li class="list-group-item">
+                        <b>Number: </b><span>{{ ticket.number }}</span>
+                        <span class="pull-right"><b>Title: </b> <span>{{ ticket.title }}</span></span>
+                    </li>
+
+                    <li class="list-group-item">
+                        <b>Priority: </b><span>{{ ticket.priority }}</span>
+                        <span class="pull-right"><b>Create By: </b><span>{{ ticket?.user?.email }}</span></span>
+                    </li>
+
+                    <li class="list-group-item">
+                        <b>Status: </b><span>{{ ticket.status }}</span>
+                        <span class="pull-right"><b>Assigned To: </b><span>{{ ticket?.assignedUser?.email }}</span></span>
+                    </li>
+
+                    <li class="list-group-item">
+                        <b>Date: </b><span>{{ ticket.data | data:'dd/MM/yyyy' }}</span>
+                        <span class="pull-right"><b>Description: </b><span>{{ ticket.description }}</span>
+                    </li>
+
+                    <li class="list-group-item">
+                        <span><img [src]="ticket.imagens" width:"450px" height="370px"></span>
+                        <span class="pull-right">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>User Change</th>
+                                    <th>Date Change Status</th>
+                                    <th>Status</th>
+                                </tr>
+
+                                <tr *ngFor="let change of ticket.changes">
+                                    <td>{{ change?.userChange.email }}</td>
+                                    <td>{{ change?.dataChangeStatus | date:'dd/MM/yyyy HH:mm:ss' }}</td>
+                                    <td>{{ change?.status }}</td>
+                                </tr>
+                            </table>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</div>

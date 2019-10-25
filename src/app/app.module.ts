@@ -20,6 +20,7 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import { DialogService } from './services/dialog.service';
 import { TicketNewComponent } from './components/ticket-new/ticket-new.component';
 import { TicketListComponent } from './components/ticket-list/ticket-list.component';
+import { TicketDetailComponent } from './components/ticket-detail/ticket-detail.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { TicketListComponent } from './components/ticket-list/ticket-list.compon
     UserNewComponent,
     UserListComponent,
     TicketNewComponent,
-    TicketListComponent
+    TicketListComponent,
+    TicketDetailComponent
   ],
   imports: [
     BrowserModule,
