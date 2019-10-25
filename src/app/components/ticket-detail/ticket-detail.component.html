@@ -51,6 +51,28 @@
                     </li>
                 </ul>
             </div>
+
+            <div class="box-footer">
+                <button *ngIf="shared.user.profile == 'TECNICIAN' && ticket.status == 'New'"
+                    (click)="changeStatus('Assigned')"
+                    class="btn btn-primary">Accept</button>
+                
+                <button *ngIf="shared.user.profile == 'TECNICIAN' && (ticket.status == 'Assigned' || ticket.status == 'Disapproved')"
+                    (click)="changeStatus('Resolved')"
+                    class="btn btn-primary">Solve</button>
+
+                <button *ngIf="shared.user.profile == 'CUSTOMER' && ticket.status == 'Resolved'"
+                    (click)="changeStatus('Approved')"
+                    class="btn btn-primary">Approved</button>
+                
+                <button *ngIf="shared.user.profile == 'CUSTOMER' && ticket.status == 'Resolved'"
+                    (click)="changeStatus('Disapproved')"
+                    class="btn btn-primary">Disapproved</button>
+                
+                <button *ngIf="shared.user.profile == 'TECNICIAN' && ticket.status == 'Approved'"
+                    (click)="changeStatus('Closed')"
+                    class="btn btn-primary">Close</button>
+            </div>
         </form>
     </div>
 </div>
