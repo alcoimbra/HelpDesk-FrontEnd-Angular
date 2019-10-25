@@ -10,7 +10,7 @@
       </a>
       
       <div class="navbar-custom-menu">
-        <p style="color: white">algcoimbra01@gmail.com - ADMIN | <button>Teste</button></p>
+        <p style="color: white">{{ shared.user.email }} - {{ shared.user.profile }} | <button class="btn btn-link" (click)="signOut()"><font style="color: white">Sing Out</font></button></p>
       </div>
     </nav>
 </header>
